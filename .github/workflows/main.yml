@@ -24,7 +24,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd my-agenda-app
+          cd /my-agenda-app
           npm install
 
       - name: Run Lint
