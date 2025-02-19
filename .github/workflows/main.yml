@@ -11,7 +11,9 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./my-agenda-app
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -21,13 +23,9 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Install Dependencies
-        run: |
-          cd my-agenda-app
-          npm install
-        working-directory: ./my-agenda-app  # Specify the correct directory
+        run: npm install
 
       - name: Run Lint
         run: |
