@@ -37,7 +37,9 @@ jobs:
         run: npm run build
 
       - name: Run Playwright Tests
-        run: npm run test:e2e
+        run: | 
+          npx playwright install  
+          npm run test:e2e
         env:
           CI: true
 
