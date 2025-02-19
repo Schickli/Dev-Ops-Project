@@ -21,26 +21,31 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Install Dependencies
         run: |
-          cd /my-agenda-app
+          cd my-agenda-app
           npm install
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Run Lint
         run: |
           cd my-agenda-app
           npm run lint
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Run Type Check
         run: |
           cd my-agenda-app
           npm run check
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Build Project
         run: |
           cd my-agenda-app
           npm run build
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Run Playwright Tests
         run: |
@@ -48,6 +53,7 @@ jobs:
           npm run test:e2e
         env:
           CI: true
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Check for Test Results Directory
         run: |
@@ -55,6 +61,7 @@ jobs:
             echo "Test results directory not found"
             exit 1
           fi
+        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Upload Playwright Test Artifacts (if failed)
         if: failure()
