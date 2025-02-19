@@ -8,16 +8,16 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
-            text-align: center;
             padding: 20px;
         }
         .container {
             background: #fff;
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 800px;
             margin: 40px auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
         h1 {
             color: #333;
@@ -26,6 +26,13 @@
             font-size: 16px;
             color: #666;
             margin-bottom: 20px;
+        }
+        .setup {
+            font-size: 14px;
+            background: #f8f9fa;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+            font-family: monospace;
         }
     </style>
 </head>
@@ -45,6 +52,22 @@
         <p class="description">
             Der Code verwendet moderne Web-Technologien wie TypeScript und CSS für eine ansprechende Gestaltung. 
             Zudem ist die Anwendung leicht erweiterbar und kann für verschiedene Anwendungsfälle angepasst werden.
+        </p>
+        <h2>Installation & Start</h2>
+        <p class="description">Um die Anwendung lokal auszuführen, folge diesen Schritten:</p>
+        <pre class="setup">
+# Repository klonen
+git clone &lt;repository-url&gt;
+cd my-agenda-app
+
+# Abhängigkeiten installieren
+npm install
+
+# Entwicklungsserver starten
+npm run dev
+        </pre>
+        <p class="description">
+            Nach dem Start ist die Anwendung unter <code>http://localhost:5173</code> erreichbar.
         </p>
     </div>
 </body>
