@@ -28,30 +28,18 @@ jobs:
         run: npm install
 
       - name: Run Lint
-        run: |
-          cd my-agenda-app
-          npm run lint
-        working-directory: ./my-agenda-app  # Specify the correct directory
+        run: npm run lint
 
       - name: Run Type Check
-        run: |
-          cd my-agenda-app
-          npm run check
-        working-directory: ./my-agenda-app  # Specify the correct directory
+        run: npm run check
 
       - name: Build Project
-        run: |
-          cd my-agenda-app
-          npm run build
-        working-directory: ./my-agenda-app  # Specify the correct directory
+        run: npm run build
 
       - name: Run Playwright Tests
-        run: |
-          cd my-agenda-app
-          npm run test:e2e
+        run: npm run test:e2e
         env:
           CI: true
-        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Check for Test Results Directory
         run: |
@@ -59,7 +47,6 @@ jobs:
             echo "Test results directory not found"
             exit 1
           fi
-        working-directory: ./my-agenda-app  # Specify the correct directory
 
       - name: Upload Playwright Test Artifacts (if failed)
         if: failure()
