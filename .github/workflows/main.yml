@@ -40,19 +40,3 @@ jobs:
         run: | 
           npx playwright install  
           npm run test:e2e
-        env:
-          CI: true
-
-      - name: Check for Test Results Directory
-        run: |
-          if [ ! -d "my-agenda-app/test-results" ]; then
-            echo "Test results directory not found"
-            exit 1
-          fi
-
-      - name: Upload Playwright Test Artifacts (if failed)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-test-results
-          path: ./my-agenda-app/test-results/
