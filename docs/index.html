@@ -3,36 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World Documentation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SvelteKit Agendas App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Hello World Documentation</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Introduction</h2>
-            <p>Welcome to the Hello World documentation page. This page serves as a simple example of how to create a GitHub page for documentation purposes.</p>
-        </section>
-        <section>
-            <h2>Getting Started</h2>
-            <p>To get started, simply follow the instructions below:</p>
-            <ol>
-                <li>Create a new repository on GitHub.</li>
-                <li>Clone the repository to your local machine.</li>
-                <li>Create an `index.html` file and add your content.</li>
-                <li>Push the changes to GitHub.</li>
-                <li>Enable GitHub Pages in the repository settings.</li>
-            </ol>
-        </section>
-        <section>
-            <h2>Conclusion</h2>
-            <p>Congratulations! You have successfully created a Hello World documentation page using GitHub Pages.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Hello World Documentation</p>
-    </footer>
+    <div class="container">
+        <h1>SvelteKit Agendas App</h1>
+        <p class="description">
+            Dies ist eine einfache SvelteKit-Anwendung, mit der du deine Agendapunkte verwalten kannst. 
+            Du kannst neue Punkte hinzufügen und bestehende löschen. Das Projekt zeigt die grundlegenden 
+            Konzepte von Svelte, darunter Reaktivität und Event-Handling.
+        </p>
+        <p class="description">
+            Die App basiert auf SvelteKit und nutzt eine reaktive Datenstruktur, um Änderungen in Echtzeit anzuzeigen. 
+            Neue Agendapunkte werden direkt in die Liste aufgenommen, und mit einem einfachen Klick können sie wieder entfernt werden.
+            Die Benutzeroberfläche ist minimalistisch und intuitiv gestaltet, um eine einfache Nutzung zu ermöglichen.
+        </p>
+        <p class="description">
+            Der Code verwendet moderne Web-Technologien wie TypeScript und CSS für eine ansprechende Gestaltung. 
+            Zudem ist die Anwendung leicht erweiterbar und kann für verschiedene Anwendungsfälle angepasst werden.
+        </p>
+    </div>
 </body>
-</html></html>
+</html>
