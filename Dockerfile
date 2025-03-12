@@ -2,11 +2,11 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY ./my-agenda-app/ ./
+COPY ./my-agenda-app/package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY ./my-agenda-app/ ./
 
 RUN npm run build
 
