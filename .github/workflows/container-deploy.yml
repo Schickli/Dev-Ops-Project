@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - 'v*'  # Triggert das Build automatisch bei Tags wie v1.0.0
-  workflow_dispatch:  # Ermöglicht manuelles Triggern für das Deployment
 
 jobs:
   build:
@@ -38,7 +37,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build  # Stellt sicher, dass das Build-Job abgeschlossen ist
-    if: github.event_name == 'workflow_dispatch'  # Nur manuell ausführbar
 
     steps:
       - name: Extract Azure Credentials
