@@ -57,10 +57,10 @@ jobs:
 
       - name: Deploy to Azure Container Apps
         run: |
-          az containerapp update \
-            --name my-agenda-app \
-            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-            --image ${{ secrets.AZURE_ACR_LOGIN_SERVER }}/my-agenda-app:${{ env.VERSION }} \
-            --registry-server ${{ secrets.AZURE_ACR_LOGIN_SERVER }} \
-            --registry-username ${{ secrets.AZURE_ACR_USERNAME }} \
+          az containerapp update 
+            --name my-agenda-app
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }}
+            --image ${{ secrets.AZURE_ACR_LOGIN_SERVER }}/my-agenda-app:${{ env.VERSION }}
+            --registry-server ${{ secrets.AZURE_ACR_LOGIN_SERVER }}
+            --registry-username ${{ secrets.AZURE_ACR_USERNAME }}
             --registry-password ${{ secrets.AZURE_ACR_PASSWORD }}
