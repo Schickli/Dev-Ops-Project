@@ -5,6 +5,10 @@ on:
     tags:
       - 'v*'  # Triggert das Build automatisch bei Tags wie v1.0.0
 
+permissions:
+  id-token: write
+  contents: read  # Notwendig für den Checkout
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -39,26 +43,19 @@ jobs:
     needs: build  # Stellt sicher, dass das Build-Job abgeschlossen ist
 
     steps:
-      - name: Extract Azure Credentials
-        run: |
-          echo "AZURE_CLIENT_ID=$(jq -r .clientId <<< '${{ secrets.AZURE_CREDENTIALS }}')" >> $GITHUB_ENV
-          echo "AZURE_CLIENT_SECRET=$(jq -r .clientSecret <<< '${{ secrets.AZURE_CREDENTIALS }}')" >> $GITHUB_ENV
-          echo "AZURE_SUBSCRIPTION_ID=$(jq -r .subscriptionId <<< '${{ secrets.AZURE_CREDENTIALS }}')" >> $GITHUB_ENV
-          echo "AZURE_TENANT_ID=$(jq -r .tenantId <<< '${{ secrets.AZURE_CREDENTIALS }}')" >> $GITHUB_ENV
-
       - name: Azure Login
         uses: azure/login@v1
         with:
-          client-id: ${{ env.AZURE_CLIENT_ID }}
-          tenant-id: ${{ env.AZURE_TENANT_ID }}
-          subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Container Apps
         run: |
-          az containerapp update 
-            --name my-agenda-app
-            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }}
-            --image ${{ secrets.AZURE_ACR_LOGIN_SERVER }}/my-agenda-app:${{ env.VERSION }}
-            --registry-server ${{ secrets.AZURE_ACR_LOGIN_SERVER }}
-            --registry-username ${{ secrets.AZURE_ACR_USERNAME }}
+          az containerapp update \
+            --name my-agenda-app \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --image ${{ secrets.AZURE_ACR_LOGIN_SERVER }}/my-agenda-app:${{ env.VERSION }} \
+            --registry-server ${{ secrets.AZURE_ACR_LOGIN_SERVER }} \
+            --registry-username ${{ secrets.AZURE_ACR_USERNAME }} \
             --registry-password ${{ secrets.AZURE_ACR_PASSWORD }}
