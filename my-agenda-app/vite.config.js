@@ -7,6 +7,12 @@ export default defineConfig({
     allowedHosts: ["*"],
   },
   server: {
-    allowedHosts: 'all'
-  }
+    host: "0.0.0.0",
+    port: 3000,
+    preview: {
+      allowedHosts: [
+        "my-agenda-app.jollycoast-976c0690.switzerlandnorth.azurecontainerapps.io"
+        ]
+      }
+    }
 });
