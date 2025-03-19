@@ -6,4 +6,7 @@ export default defineConfig({
   preview: {
     allowedHosts: ["*"],
   },
+  server: {
+    allowedHosts: 'all'
+  }
 });
