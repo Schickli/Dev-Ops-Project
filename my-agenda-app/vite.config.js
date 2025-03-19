@@ -11,7 +11,7 @@ export default defineConfig({
     port: 3000,
     preview: {
       allowedHosts: [
-        "my-agenda-app.jollycoast-976c0690.switzerlandnorth.azurecontainerapps.io"
+        "*"
         ]
       }
     }
